@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# Node(추후 웹 챕터 확장 대비)
+node_modules/
+
+# Logs
+*.log

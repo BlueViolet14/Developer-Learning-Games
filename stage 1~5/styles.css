@@ -1,0 +1,150 @@
+/* 1) 전역 변수: 색상/브랜드/텍스트 톤 일관성 */
+:root {
+    --text: #222;
+    --muted: #666;
+    --brand: #4f46e5;
+    /* 링크/포인트 컬러 */
+    --surface: #fff;
+    /* 카드 배경 */
+    --border: #eee;
+    /* 카드 테두리 */
+    --shadow: 0 6px 16px rgba(0, 0, 0, .06);
+    --focus: #4338ca;
+    --focus-width: 3px;
+    --focus-offset: 3px;
+}
+
+/* 2) 박스 모델 표준화 */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before, 
+*::after {
+    box-sizing: inherit;
+}
+
+/* 3) 타이포/기본 여백 */
+body {
+    margin: 0;
+    /* 브라우저 기본 여백 제거 */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    /* 고정 px 대신 상대값 사용 */
+    background: #fafafa;
+    /* 살짝 톤 업으로 대비 향상 */
+}
+
+/* 4) 레이아웃 컨테이너: 반응형 가운데 정렬 */
+.container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    /* 좌우 auto → 가운데 */
+    padding: 24px;
+    /* 안쪽 여백 */
+}
+
+/* 5) 네비게이션: 가로 정렬 + 간격 */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.nav a {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 2px 4px;
+    border-radius: 8px;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+    outline: var(--focus-width) solid var(--focus);
+    outline-offset: var(--focus-offset);
+}
+
+.card:focus-within {
+    box-shadow: 
+        0 0 0 2px var(--surface),
+        0 0 0 6px var(--focus),
+        var(--shadow);
+    border-color: var(--focus);
+}
+
+@media (prefers-contrast: more) {
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline-width: calc(var(--focus-width) + 1px);
+  }
+}
+
+
+@media (forced-colors: active) {
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 2px solid Highlight;    /* 시스템 포커스 색상 사용 */
+    outline-offset: 2px;
+  }
+}
+
+/* 6) 타이틀/리드 문구 */
+h1#main-title {
+    margin: 24px 0 8px;
+    text-align: center;
+}
+
+.lead {
+    margin: 0 0 20px;
+    text-align: center;
+    color: var(--muted);
+    /* 변수명 통일 */
+}
+
+/* 7) 카드 컴포넌트 */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    /* 두께/색 명시 */
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .06);
+    padding: 16px;
+    /* 내용과 테두리 간격 */
+}
+
+.card h2 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+
+.features {
+    margin: 0;
+    padding-left: 18px;
+    /* 목록 들여쓰기 */
+}
+
+.features li:hover {
+    text-decoration: underline;
+}
+
+/* 8) 링크 공통(본문) */
+a {
+    color: var(--brand);
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+    }
+    h1#main-title {
+        font-size: 1.5rem;
+    }
+}

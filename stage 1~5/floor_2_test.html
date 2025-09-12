@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2층 훈련장 연습</title>
+  <style>
+    :root {
+      --text: #222;
+      --muted: #666;
+      --brand: #4f46e5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, "Noto Sans KR", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin: 24px 0 8px;
+      text-align: center;
+    }
+
+    p.lead {
+      color: var(--muted);
+      text-align: center;
+      margin: 0 0 20px;
+    }
+
+    .card {
+      width: 100%;
+      border: 1px solid #eee;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .06);
+    }
+
+    ul.features {
+      margin: 12px 0 0;
+      padding: 0 0 0 18px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="#">홈</a><a href="#">소개</a><a href="#">문의</a>
+    </nav>
+
+    <h1 id="main-title">나의 첫 웹페이지</h1>
+    <p class="lead">2층 훈련장에서 CSS로 디자인을 배워요.</p>
+
+    <section class="card">
+      <h2>오늘 배울 것</h2>
+      <ul class="features">
+        <li>선택자(태그/클래스/아이디)</li>
+        <li>박스 모델(여백/테두리)</li>
+        <li>글꼴, 색, 간격 규칙</li>
+        <li>가로 배치(Flex) 기초</li>
+      </ul>
+    </section>
+
+    <p class="footer">© 플레이어의 학습 페이지</p>
+  </div>
+</body>
+
+</html>
