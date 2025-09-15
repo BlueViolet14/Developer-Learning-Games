@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>나의 첫 웹페이지</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -16,8 +17,9 @@
             <a href="#">문의</a>
         </nav>
 
-        <h1 id="main-title">나의 첫 웹페이지</h1>
+        <h1 id="main-title">나의 첫 인터랙티브 웹페이지</h1>
         <p class="lead">이 웹페이지는 HTML, CSS, JS를 사용했습니다.</p>
+        <button id="btn">제목 바꾸기</button>
 
         <section class="card" aria-labelledby="sec-title">
             <h2 id="sec-title">학습 목록</h2>
@@ -26,6 +28,13 @@
                 <li>CSS</li>
                 <li>JavaScript</li>
             </ul>
+        </section>
+
+        <section class="card" aria-labelledby="thi-title">
+            <h2 id="thi-title">JavaScript</h2>
+            <input id="name-input" type="text" placeholder="이름 입력" />
+            <button id="hello-btn">인사하기</button>
+            <p id="message"></p>
         </section>
     </div>
 </body>
