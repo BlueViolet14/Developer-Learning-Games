@@ -1,12 +1,9 @@
-a, b = map(int, input().split())
-s = a + b
-diff = a - b
-prod = a * b
-quod = a // b if b != 0 else "DIV0"
-rem = a % b if b != 0 else "DIV0"
+n = int(input())
+total = 0
 
-print("SUM:", s)
-print("DIFF:", diff)
-print("PROD:", prod)
-print("QUOT:", quod)
-print("REM:", rem)
+for i in range(n):
+    i += 1
+    if i % 2 == 0:
+        total += i
+
+print("EVEN SUM:", total)
