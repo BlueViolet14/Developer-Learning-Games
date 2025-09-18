@@ -1,38 +1,66 @@
-// 1번
-const title = document.getElementById("title");
-console.log(title.innerText);
+"use strict";
 
-// 2번
-const desc = document.getElementById("desc");
-desc.textContent = "자바스크립트로 바꿨다!";
+const outer = document.getElementById("outer");
+const inner = document.getElementById("inner");
 
-// 3번
-const btn = document.getElementById("btn");
-const text = document.getElementById("text");
-
-btn.addEventListener('click', () => {
-    text.style.color = '#ff0000';
+outer.addEventListener('click', () => {
+    console.log("outer 버블링");
 });
 
-// 4번
-const nameInput = document.getElementById("name")
-const ok = document.getElementById("ok");
-const msg = document.getElementById("msg");
+inner.addEventListener('click', () => {
+    console.log("inner 버블링");
+});
 
-ok.addEventListener('click', () => {
-    const name = nameInput.value.trim();
-    if (!name) {
-        msg.innerText = "이름을 입력하세요.";
+outer.addEventListener('click', () => {
+    console.log("outer 캡쳐링");
+}, true);
+
+const list = document.querySelector('.menu');
+
+list.addEventListener('click', (e) => {
+    const li = e.target.closest('li');
+    if (!li || !list.contains(li)) return;
+    console.log('클릭:', li.innerText);
+});
+
+const linkPrevent = document.getElementById('link');
+
+linkPrevent.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log("이동이 차단되었습니다.");
+});
+
+const form = document.getElementById("login-form");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault(); // 기본 제출(새로고침) 막기
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
+        status.textContent = "아이디와 비밀번호를 모두 입력하세요.";
         return;
     }
-    msg.innerText = `안녕하세요, ${name}님!`
+
+    status.textContent = `로그인 시도: ${username}`;
 });
 
-// 5
-const items = document.querySelectorAll(".features li")
+const todoList = document.getElementById("todo-list");
+const addBtn = document.getElementById("add");
 
-items.forEach((items) => {
-    items.addEventListener("click", () => {
-        console.log(items.innerText);
-    });
+// 1) 이벤트 위임: li 클릭 시 콘솔에 텍스트 출력
+list.addEventListener("click", (e) => {
+    // li 태그를 클릭했는지 확인
+    if (e.target.tagName === "LI") {
+        console.log("클릭한 항목:", e.target.innerText);
+    }
+});
+
+// 2) 버튼 클릭 시 새로운 li 추가
+addBtn.addEventListener("click", () => {
+    const newItem = document.createElement("li");
+    newItem.innerText = `할 일 ${todoList.children.length + 1}`;
+    todoList.appendChild(newItem);
 });
