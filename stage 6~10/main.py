@@ -1,9 +1,12 @@
-n = int(input())
-total = 0
+line = input().strip()
+words = line.split()
+counts = {} 
 
-for i in range(n):
-    i += 1
-    if i % 2 == 0:
-        total += i
+for w in words:
+    if w in counts:
+        counts[w] += 1
+    else:
+        counts[w] = 1
 
-print("EVEN SUM:", total)
+for word, count in counts.items():
+    print(f"{word}: {count}")
