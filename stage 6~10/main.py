@@ -1,12 +1,12 @@
-line = input().strip()
-words = line.split()
-counts = {} 
+try:
+    with open("C:/개발자 학습용 게임/stage 6~10/numbers.txt", "r", encoding="utf-8") as f:
+        nums = [int(x) for x in f.read().split()]
 
-for w in words:
-    if w in counts:
-        counts[w] += 1
+    if not nums:
+        print("데이터가 없습니다.")
     else:
-        counts[w] = 1
+        print("SUM:", sum(nums))
+        print("AVG:", sum(nums)/len(nums))
 
-for word, count in counts.items():
-    print(f"{word}: {count}")
+except FileNotFoundError:
+    print("파일을 찾을 수 없습니다.")
